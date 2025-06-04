@@ -1,63 +1,90 @@
-# Web simulation of UbuntuOS
+# UbuntuOS Web Portfolio
 
-This is a personal portfolio website of theme Ubuntu 20.04, made using Next.js & tailwind CSS.
-If you want to edit this. Clone this project and edit the files in `/src/components`.
+A personal portfolio website themed after Ubuntu 20.04, built with Next.js and Tailwind CSS.
 
-To run this on localhost
-type `npm start` and when u are done coding type `npm run build` to build your app.
+---
 
-_NOTE: if you have yarn just replace `npm start` and `npm run build` with `yarn start` and `yarn build`._
+## Table of Contents
+- [Features](#features)
+- [Demo](#demo)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contact Form Setup](#contact-form-setup)
+- [Star History](#star-history)
+- [Contributing](#contributing)
+- [License](#license)
 
-<a href="https://www.buymeacoffee.com/vivek9patel" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 140px !important;" ></a>
+---
 
-### To make the contact form work
+## Features
+- Ubuntu 20.04 inspired UI
+- Built with Next.js & Tailwind CSS
+- Responsive design
+- Contact form with EmailJS integration
 
-- Create a account in [emailjs](https://www.emailjs.com/) create also new Outlook or Gmail account to be able
-  to send email.
-- Create a new service, select and log in to your newly created outlook or gmail account on EmailJS.
-- Go back to the dashboard and get the Service ID copy it.
-- Create a .env file in your root folder and put
+## Demo
+[Live Demo](https://your-demo-link.com) <!-- Replace with your actual demo link if available -->
 
-```
+## Installation
 
-NEXT_PUBLIC_USER_ID = 'YOUR_USER_ID'
-NEXT_PUBLIC_TEMPLATE_ID = 'template_fqqqb9g'
-NEXT_PUBLIC_SERVICE_ID = 'YOUR_SERVICE_ID'
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/your-repo.git
+   cd your-repo/Portfolio
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-```
+## Usage
 
-into it. Replace \*your user id and your service ID with your values in your EmailJS service.
+- **Start the development server:**
+  ```bash
+  npm start
+  # or
+  yarn start
+  ```
+  Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+- **Build for production:**
+  ```bash
+  npm run build
+  # or
+  yarn build
+  ```
+
+## Contact Form Setup
+
+To enable the contact form:
+
+1. Create an account at [EmailJS](https://www.emailjs.com/). You may need to create a new Outlook or Gmail account for sending emails.
+2. Create a new service in EmailJS, select and log in to your email account.
+3. From the EmailJS dashboard, copy your **Service ID** and **User ID**.
+4. Create a `.env` file in the root of your project and add:
+   ```env
+   NEXT_PUBLIC_USER_ID=your_user_id
+   NEXT_PUBLIC_TEMPLATE_ID=template_fqqqb9g
+   NEXT_PUBLIC_SERVICE_ID=your_service_id
+   ```
+   Replace `your_user_id` and `your_service_id` with your actual values from EmailJS.
 
 ## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=vivek9patel/vivek9patel.github.io&type=Date)](https://star-history.com/#vivek9patel/vivek9patel.github.io&Date)
-
-## This project was made using Create Next App! Here is the scripts that u can run.
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[![Star History Chart](https://api.star-history.com/svg?repos=SpideyHere01/portfolio&type=Date)](https://star-history.com/#SpideyHere01/portfolio&Date)
 
 ## Contributing
-
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributiors who wants to make this website better can make contribution,which will be **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Added some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
+Contributions are welcome! To contribute:
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to your branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+## License
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
+
+---
+
+<a href="https://www.buymeacoffee.com/ronak9patel" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 140px !important;" ></a>

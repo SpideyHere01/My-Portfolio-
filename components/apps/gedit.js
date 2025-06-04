@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import $ from 'jquery';
 import ReactGA from 'react-ga4';
 import emailjs from '@emailjs/browser';
+import { FaEnvelope, FaInstagram, FaDiscord, FaRegCopy, FaGithub } from 'react-icons/fa';
 
 export class Gedit extends Component {
 
@@ -53,9 +54,10 @@ export class Gedit extends Component {
         emailjs.send(serviceID, templateID, templateParams).then(() => {
             this.setState({ sending: false });
             $("#close-gedit").trigger("click");
-        }).catch(() => {
+        }).catch((err) => {
             this.setState({ sending: false });
-            $("#close-gedit").trigger("click");
+            alert("Failed to send message: " + (err && err.text ? err.text : "Unknown error"));
+            console.error("EmailJS send error:", err);
         })
 
         ReactGA.event({
@@ -66,38 +68,80 @@ export class Gedit extends Component {
     }
 
     render() {
+        const contactInfo = [
+            {
+                label: 'Email',
+                value: 'ronakmeena9999@gmail.com',
+                icon: <FaEnvelope className="text-blue-500 mr-3 text-2xl" />,
+                link: 'mailto:ronakmeena9999@gmail.com',
+                color: 'text-blue-400',
+            },
+            {
+                label: 'Instagram',
+                value: 'ronakslore',
+                icon: <FaInstagram className="text-pink-500 mr-3 text-2xl" />,
+                link: 'https://instagram.com/ronakslore',
+                color: 'text-pink-400',
+            },
+            {
+                label: 'Discord',
+                value: 'aka.ronak',
+                icon: <FaDiscord className="text-indigo-400 mr-3 text-2xl" />,
+                link: 'https://discord.com/users/aka.ronak',
+                color: 'text-indigo-300',
+            },
+            {
+                label: 'GitHub',
+                value: 'SpideyHere01',
+                icon: <FaGithub className="text-gray-300 mr-3 text-2xl" />,
+                link: 'https://github.com/SpideyHere01',
+                color: 'text-gray-300',
+                isGithub: true,
+            },
+        ];
+
+        const handleCopy = (text) => {
+            navigator.clipboard.writeText(text);
+            alert('Copied: ' + text);
+        };
+
         return (
-            <div className="w-full h-full relative flex flex-col bg-ub-cool-grey text-white select-none">
-                <div className="flex items-center justify-between w-full bg-ub-gedit-light bg-opacity-60 border-b border-t border-blue-400 text-sm">
-                    <span className="font-bold ml-2">Send a Message to Me</span>
-                    <div className="flex">
-                        <div onClick={this.sendMessage} className="border border-black bg-black bg-opacity-50 px-3 py-0.5 my-1 mx-1 rounded hover:bg-opacity-80">Send</div>
-                    </div>
+            <div className="w-full h-full flex flex-col bg-gradient-to-br from-gray-900 via-gray-800 to-blue-900 text-white select-none">
+                <div className="flex items-center justify-between w-full bg-ub-gedit-light bg-opacity-60 border-b border-t border-blue-400 text-lg shadow-sm">
+                    <span className="font-bold ml-2 tracking-wide">Contact Me</span>
                 </div>
-                <div className="relative flex-grow flex flex-col bg-ub-gedit-dark font-normal windowMainScreen">
-                    <div className="absolute left-0 top-0 h-full px-2 bg-ub-gedit-darker"></div>
-                    <div className="relative">
-                        <input id="sender-name" className=" w-full text-ubt-gedit-orange focus:bg-ub-gedit-light outline-none font-medium text-sm pl-6 py-0.5 bg-transparent" placeholder="Your Email / Name :" spellCheck="false" autoComplete="off" type="text" />
-                        <span className="absolute left-1 top-1/2 transform -translate-y-1/2 font-bold light text-sm text-ubt-gedit-blue">1</span>
-                    </div>
-                    <div className="relative">
-                        <input id="sender-subject" className=" w-full my-1 text-ubt-gedit-blue focus:bg-ub-gedit-light gedit-subject outline-none text-sm font-normal pl-6 py-0.5 bg-transparent" placeholder="subject (may be a feedback for this website!)" spellCheck="false" autoComplete="off" type="text" />
-                        <span className="absolute left-1 top-1/2 transform -translate-y-1/2 font-bold  text-sm text-ubt-gedit-blue">2</span>
-                    </div>
-                    <div className="relative flex-grow">
-                        <textarea id="sender-message" className=" w-full gedit-message font-light text-sm resize-none h-full windowMainScreen outline-none tracking-wider pl-6 py-1 bg-transparent" placeholder="Message" spellCheck="false" autoComplete="none" type="text" />
-                        <span className="absolute left-1 top-1 font-bold  text-sm text-ubt-gedit-blue">3</span>
-                    </div>
-                </div>
-                {
-                    (this.state.sending
-                        ?
-                        <div className="flex justify-center items-center animate-pulse h-full w-full bg-gray-400 bg-opacity-30 absolute top-0 left-0">
-                            <img className={" w-8 absolute animate-spin"} src="./themes/Yaru/status/process-working-symbolic.svg" alt="Ubuntu Process Symbol" />
+                <div className="flex-grow flex flex-col justify-center items-center bg-transparent">
+                    <div className="w-full max-w-md p-8 rounded-2xl bg-gray-800 bg-opacity-90 border border-blue-500 shadow-xl mt-8">
+                        <h2 className="text-3xl font-extrabold mb-8 text-center text-blue-300 tracking-wide drop-shadow">Let's Connect!</h2>
+                        <div className="space-y-5">
+                            {contactInfo.map((info, idx) => (
+                                <div
+                                    key={info.label}
+                                    className="flex items-center justify-between bg-gray-900 bg-opacity-80 rounded-xl px-5 py-4 transition-all duration-200 group border border-gray-700 hover:border-blue-400 shadow-sm"
+                                >
+                                    <div className="flex items-center">
+                                        {info.icon}
+                                        <a
+                                            href={info.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className={`ml-1 font-semibold ${info.color} hover:underline text-lg transition-all duration-150 group-hover:scale-105`}
+                                        >
+                                            {info.isGithub ? `@${info.value}` : info.value}
+                                        </a>
+                                    </div>
+                                    <button
+                                        onClick={() => handleCopy(info.value)}
+                                        className="ml-3 p-2 rounded-full hover:bg-blue-500 hover:text-white transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-blue-300"
+                                        title="Copy"
+                                    >
+                                        <FaRegCopy />
+                                    </button>
+                                </div>
+                            ))}
                         </div>
-                        : null
-                    )
-                }
+                    </div>
+                </div>
             </div>
         )
     }
