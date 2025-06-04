@@ -117,10 +117,10 @@ function About() {
     return (
         <>
             <div className="w-20 md:w-28 my-4 bg-white rounded-full">
-                <img className="w-full" src="./images/logos/bitmoji.png" alt="Ronak 'Pappu' Meena Logo" />
+                <img className="w-full" src="./images/logos/bitmoji.png" alt="Ronak Meena Logo" />
             </div>
             <div className=" mt-4 md:mt-8 text-lg md:text-2xl text-center px-1">
-                <div>my name is <span className="font-bold">Ronak 'Pappu' Meena</span> ,</div>
+                <div>my name is <span className="font-bold">Ronak Meena</span> ,</div>
                 <div className="font-normal ml-1">I'm a <span className="text-pink-600 font-bold">Full Stack Developer & AI Enthusiast!</span></div>
             </div>
             <div className=" mt-4 relative md:my-8 pt-px bg-white w-32 md:w-48">
